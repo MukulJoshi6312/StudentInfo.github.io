@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+    {% block content %}
+
+<div class="mb-3 text-center bg-success text-white pt-3 pb-3 ">
+    <h4>All Information</h4>
+</div>
+
+<table class="table table-dark table-striped shadow  p-3 mb-5 bg-body rounded">
+
+
+    <!--<form method="POST" action="/search">-->
+
+        <!--{% csrf_token %}-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<input name="name">-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<button type="submit">Search</button>-->
+            <!--</td>-->
+        <!--</tr>-->
+
+    <!--</form>-->
+
+
+
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Contact</th>
+    <th>Edit</th>
+    <th>Delete</th>
+
+    {% for i in employee %}
+    <tr>
+        <td>{{ i.eid }}</td>
+        <td>{{ i.ename }}</td>
+        <td>{{ i.eemail }}</td>
+        <td>{{ i.econtact }}</td>
+        <td>
+            <a href="edit/{{ i.id }}" class="btn btn-success" >Edit</a>
+        </td>
+        <td>
+            <a href="delete/{{ i.id }}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+{% endblock %}
+
+</body>
+</html>

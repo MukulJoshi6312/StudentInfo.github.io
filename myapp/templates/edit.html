@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+    {% block content %}
+<div class="mb-3 text-center bg-success text-white pt-3 pb-3 shadow">
+<h4 class="mb-2 shadow">Edit Student Information Here:</h4>
+</div>
+
+<form method="POST" action="/update/{{ employee.id}}">
+
+    {% csrf_token %}
+
+    <table>
+                <label>ID:</label>
+        <div><input name="eid" required value="{{ employee.eid }}"></div>
+
+            <label>Name:</label>
+        <div><input name="ename" required value="{{ employee.ename }}"></div>
+
+            <label>Email:</label>
+        <div><input name="eemail" required value="{{ employee.eemail }}"></div>
+
+        <label>Contact:</label>
+        <div><input name="econtact" required value="{{ employee.econtact }}"></div>
+
+
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-success mt-2">Update</button>
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+{% endblock %}
+
+</body>
+</html>
